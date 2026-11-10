@@ -1,1 +1,119 @@
-/* Add your own styles */
+
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #1769aa;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+/* Main content */
+main {
+    background-color: white;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Search area */
+#controls {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    flex: 1;
+    min-width: 160px;
+}
+
+/* Buttons */
+button {
+    background-color: #1769aa;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: #104f80;
+}
+
+/* Results */
+#result {
+    margin-top: 25px;
+    overflow-x: auto;
+}
+
+/* Country and city tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    background-color: #1769aa;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f6fa;
+}
+
+tr:hover {
+    background-color: #e5eff8;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    main {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+
+    #controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    button {
+        width: 100%;
+    }
+}
