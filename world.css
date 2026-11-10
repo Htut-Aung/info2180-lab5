@@ -1,4 +1,3 @@
-/* General page styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f6f9;
@@ -7,7 +6,7 @@ body {
     color: #333;
 }
 
-/* Header */
+
 header {
     background-color: #1769aa;
     color: white;
@@ -20,7 +19,7 @@ h1 {
     font-size: 30px;
 }
 
-/* Main content */
+
 main {
     background-color: white;
     max-width: 900px;
@@ -30,7 +29,7 @@ main {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Search area */
+
 #controls {
     margin-bottom: 25px;
     display: flex;
@@ -52,7 +51,7 @@ input {
     min-width: 160px;
 }
 
-/* Buttons */
+
 button {
     background-color: #1769aa;
     color: white;
@@ -67,13 +66,13 @@ button:hover {
     background-color: #104f80;
 }
 
-/* Results */
+
 #result {
     margin-top: 25px;
     overflow-x: auto;
 }
 
-/* Country and city tables */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -100,7 +99,7 @@ tr:hover {
     background-color: #e5eff8;
 }
 
-/* Mobile responsiveness */
+
 @media (max-width: 600px) {
     main {
         margin: 20px 10px;
