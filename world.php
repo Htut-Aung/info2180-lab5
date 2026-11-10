@@ -1,19 +1,61 @@
+
 <?php
 $host = 'localhost';
 $username = 'lab5_user';
 $password = 'password123';
 $dbname = 'world';
 
-$conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+$conn = new PDO(
+    "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
+    $username,
+    $password
+);
+
 $country = $_GET['country'] ?? '';
-$stmt = $conn->prepare("SELECT * FROM countries WHERE name LIKE :country");
+$lookup = $_GET['lookup'] ?? '';
+
+if ($lookup === 'cities') {
+    $stmt = $conn->prepare(
+        "SELECT cities.name, cities.district, cities.population
+         FROM cities
+         JOIN countries
+         ON cities.country_code = countries.code
+         WHERE countries.name LIKE :country"
+    );
+} else {
+    $stmt = $conn->prepare(
+        "SELECT * FROM countries
+         WHERE name LIKE :country"
+    );
+}
+
 $stmt->execute([
     'country' => '%' . $country . '%'
 ]);
 
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
+
+<?php if ($lookup === 'cities'): ?>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>District</th>
+        <th>Population</th>
+    </tr>
+
+    <?php foreach ($results as $row): ?>
+        <tr>
+            <td><?= htmlspecialchars($row['name']) ?></td>
+            <td><?= htmlspecialchars($row['district']) ?></td>
+            <td><?= htmlspecialchars($row['population']) ?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+<?php else: ?>
+
 <table border="1">
     <tr>
         <th>Name</th>
@@ -31,3 +73,5 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </tr>
     <?php endforeach; ?>
 </table>
+
+<?php endif; ?>
